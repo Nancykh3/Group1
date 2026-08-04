@@ -1,0 +1,92 @@
+```ejs
+<%- include('./partials/header') %>
+
+<%- include('./partials/nav') %>
+
+<main>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1><%= title %></h1>
+
+            <p><%= description %></p>
+
+            <a href="/features" class="btn">
+                Explore Features
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Services Section -->
+    <section class="home-services">
+
+        <h2>Why Choose Our Platform?</h2>
+
+        <div class="feature-container">
+
+            <div class="feature-card">
+
+                <div class="icon">🍕</div>
+
+                <h3>Quick Recipes</h3>
+
+                <p>
+                    Find recipes that can be prepared in only a few minutes.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">💰</div>
+
+                <h3>Affordable Meals</h3>
+
+                <p>
+                    Budget-friendly recipes made especially for students.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">🍳</div>
+
+                <h3>Easy Cooking</h3>
+
+                <p>
+                    No expensive equipment or advanced cooking skills required.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-home">
+
+        <h2>About Us</h2>
+
+        <p>
+            Fast & Affordable Recipe Platform is designed to help university
+            students prepare delicious meals with simple ingredients and minimal
+            cooking equipment.
+        </p>
+
+    </section>
+
+</main>
+
+<%- include('./partials/footer') %>
+```
