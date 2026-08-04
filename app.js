@@ -6,10 +6,15 @@ const PORT = 3003;
 
 // Use EJS template engine
 app.set("view engine", "ejs");
-
+app.set("views", "./views");
 
 // Connect CSS and other static files
 app.use(express.static("public"));
+app.get("/", (req, res) => {
+
+    res.redirect("/feature");
+
+});
 
 
 // Context Object
@@ -105,6 +110,51 @@ const projectInfo = {
     ]
 
 };
+// Feature Page (Dynamic Data)
+app.get("/feature", (req, res) => {
+
+
+    const features = [
+
+        {
+            title: "Quick Recipes",
+            description: "Find fast and simple recipes that can be prepared in a short time.",
+            icon: "🍳"
+        },
+
+        {
+            title: "Low Cost Meals",
+            description: "Affordable recipes using simple and available ingredients for students.",
+            icon: "💰"
+        },
+
+        {
+            title: "Microwave Recipes",
+            description: "Prepare meals easily using a microwave without complex cooking tools.",
+            icon: "🔥"
+        },
+
+        {
+            title: "Easy Cooking Steps",
+            description: "Follow clear step-by-step instructions for preparing meals.",
+            icon: "📝"
+        },
+
+        {
+            title: "Favorite Recipes",
+            description: "Save your favorite recipes and access them anytime easily.",
+            icon: "❤️"
+        }
+
+    ];
+
+
+    res.render("feature", {
+        features: features
+    });
+
+
+});
 
 
 // Static Route
