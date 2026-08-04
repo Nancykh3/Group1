@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= recipe.name %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+
+
+<div class="recipe-detail">
+
+    <h1><%= recipe.name %></h1>
+
+    <p><%= recipe.description %></p>
+
+    <% if (recipe.time) { %>
+        <p><span class="label">Time:</span> <%= recipe.time %></p>
+    <% } %>
+
+    <% if (recipe.ingredients) { %>
+        <h2>Ingredients</h2>
+        <ul class="ingredient-list">
+        <% recipe.ingredients.forEach(item => { %>
+            <li><%= item %></li>
+        <% }) %>
+        </ul>
+    <% } %>
+
+    <% if (recipe.steps) { %>
+        <h2>Preparation Steps</h2>
+        <ol class="steps-list">
+        <% recipe.steps.forEach(step => { %>
+            <li><%= step %></li>
+        <% }) %>
+        </ol>
+    <% } %>
+
+    
+
+</div>
+
+</body>
+</html>
