@@ -3,6 +3,18 @@ const express = require("express");
 const app = express();
 const PORT = 3003;
 
+const homeRoutes = require("./routes/homeRoutes");
+const featureRoutes = require("./routes/featureRoutes");
+const recipeRoutes = require("./routes/recipeRoutes");
+
+ app.use("/", homeRoutes);
+app.use("/", featureRoutes);
+app.use("/", recipeRoutes);
+
+
+app.get('/', (req, res) => {
+    res.render('home');
+});
 
 // Use EJS template engine
 app.set("view engine", "ejs");
