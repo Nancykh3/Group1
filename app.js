@@ -2,16 +2,28 @@ const express = require("express");
 
 const app = express();
 const PORT = 3003;
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 
 const homeRoutes = require("./routes/homeRoutes");
 const featureRoutes = require("./routes/featureRoutes");
 const recipeRoutes = require("./routes/recipeRoutes");
-
+require("dotenv").config();
+const connectDB = require("./db");
  app.use("/", homeRoutes);
 app.use("/", featureRoutes);
 app.use("/", recipeRoutes);
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
 
+const authRoutes = require("./routes/authRoutes");
+app.use("/", authRoutes);
 app.get('/', (req, res) => {
     res.render('home');
 });
@@ -192,7 +204,7 @@ app.get("/recipe/:id", (req,res)=>{
     
 
 });
-
+connectDB();
 
 
 // Start Server
@@ -201,3 +213,4 @@ app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 
 });
+
