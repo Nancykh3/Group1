@@ -84,5 +84,13 @@ const projectInfo = {
         }
     ]
 };
-
+function addRecipe(recipe) {
+    const newRecipe = {
+        id: projectInfo.recipes.length + 1,
+        ...recipe
+    };
+    projectInfo.recipes.push(newRecipe);
+    return newRecipe;
+}
 module.exports = projectInfo;
+module.exports.addRecipe = addRecipe;

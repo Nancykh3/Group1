@@ -6,15 +6,7 @@ const PORT = 3003;
 const homeRoutes = require("./routes/homeRoutes");
 const featureRoutes = require("./routes/featureRoutes");
 const recipeRoutes = require("./routes/recipeRoutes");
-
- app.use("/", homeRoutes);
-app.use("/", featureRoutes);
-app.use("/", recipeRoutes);
-
-
-app.get('/', (req, res) => {
-    res.render('home');
-});
+const submitRoutes = require("./routes/submitRoutes"); 
 
 // Use EJS template engine
 app.set("view engine", "ejs");
@@ -22,11 +14,26 @@ app.set("views", "./views");
 
 // Connect CSS and other static files
 app.use(express.static("public"));
-app.get("/", (req, res) => {
-
-    res.redirect("/feature");
-
+app.use(express.urlencoded({ extended: true }));
+app.use((req, res, next) => {
+    res.locals.currentPath = req.path;
+    next();
 });
+
+ app.use("/", homeRoutes);
+app.use("/", featureRoutes);
+app.use("/", recipeRoutes);
+app.use("/", submitRoutes);
+
+
+app.get('/', (req, res) => {
+    res.render('home');
+});
+
+
+
+
+
 
 
 // Context Object

@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/style.css">
-</head>
-
-<body>
-
-<nav>
-    <a href="/about">About</a>
-</nav>
-
+<%- include('./partials/header') %>
+<%- include('./partials/nav') %>
 <h1><%= title %></h1>
 
 <h2>Project Description</h2>
@@ -31,5 +20,4 @@
 </ul>
 
 
-</body>
-</html>
+<%- include('./partials/footer') %>

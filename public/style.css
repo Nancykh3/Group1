@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f49e;
-    margin: 40px;
-    padding-top: 20px;
+    margin: 0;
+    
 }
 
 h1 {
@@ -33,35 +33,9 @@ p {
 }
 
 
-nav {
-
-    
-    background-color: #004aad;
-    padding: 15px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1000;
-    border-radius: 0;
-    
-
-}
 
 
-nav a {
-
-    color: white;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-}
-
-
-li {
+li:not(.nav-item){
 
     background:white;
 
@@ -175,4 +149,51 @@ footer {
     padding: 15px;
     text-align: center;
 
+}
+.submit-form {
+    max-width: 500px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    border: 2px solid #66a3ff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 74, 173, 0.15);
+}
+
+.submit-form label {
+    font-weight: bold;
+    color: #004aad;
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+.submit-form input,
+.submit-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.submit-form textarea {
+    min-height: 70px;
+    resize: vertical;
+}
+
+.submit-form button {
+    margin-top: 20px;
+    background-color: #004aad;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-form button:hover {
+    background-color: #003580;
 }
