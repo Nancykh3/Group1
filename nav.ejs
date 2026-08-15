@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#004aad;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/feature">Quick Cooking Guide</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <% ["feature", "about", "submit"].forEach(page => { %>
+          <li class="nav-item">
+            <a class="nav-link <%= currentPath === '/' + page ? 'active' : '' %>" href="/<%= page %>">
+              <%= page.charAt(0).toUpperCase() + page.slice(1) %>
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

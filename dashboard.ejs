@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/my-submissions">My Submissions</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+<h1>Welcome, <%= currentUser.name %>!</h1>
+
+<p>This is your personal dashboard. Only logged-in users can see this page.</p>
+
+<h2>Your Stats</h2>
+<ul>
+    <li><span class="label">Username:</span> <%= currentUser.username %></li>
+    <li><span class="label">Total Submissions:</span> <%= submissionsCount %></li>
+</ul>
+
+<p><a href="/my-submissions">View my submissions →</a></p>
+
+</body>
+</html>

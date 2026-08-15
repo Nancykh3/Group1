@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require("express-session");
 
 const app = express();
 const PORT = 3003;
@@ -6,7 +7,8 @@ const PORT = 3003;
 const homeRoutes = require("./routes/homeRoutes");
 const featureRoutes = require("./routes/featureRoutes");
 const recipeRoutes = require("./routes/recipeRoutes");
-const submitRoutes = require("./routes/submitRoutes"); 
+const submitRoutes = require("./routes/submitRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 // Use EJS template engine
 app.set("view engine", "ejs");
@@ -15,8 +17,16 @@ app.set("views", "./views");
 // Connect CSS and other static files
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+
+app.use(session({
+    secret: "recipe-platform-secret",
+    resave: false,
+    saveUninitialized: false
+}));
+
 app.use((req, res, next) => {
     res.locals.currentPath = req.path;
+    res.locals.currentUser = req.session.user || null;
     next();
 });
 
@@ -24,6 +34,7 @@ app.use((req, res, next) => {
 app.use("/", featureRoutes);
 app.use("/", recipeRoutes);
 app.use("/", submitRoutes);
+app.use("/", dashboardRoutes);
 
 
 app.get('/', (req, res) => {
@@ -196,7 +207,7 @@ app.get("/recipe/:id", (req,res)=>{
     res.render("recipe", {
         recipe: selectedRecipe
     });
-    
+
 
 });
 

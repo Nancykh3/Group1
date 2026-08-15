@@ -1,0 +1,48 @@
+<%- include('./partials/header') %>
+
+<%- include('./partials/nav') %>
+
+
+<main>
+
+<h1>
+    App services
+</h1>
+
+
+<div class="feature-container">
+  
+
+
+<% for(let i = 0; i < features.length; i++) { %>
+
+
+<div class="feature-card">
+     <div class="icon">
+        <%= features[i].icon %>
+    </div>
+
+
+    <h2>
+        <%= features[i].title %>
+    </h2>
+
+
+    <p>
+        <%= features[i].description %>
+    </p>
+
+
+</div>
+
+
+<% } %>
+
+
+</div>
+
+
+</main>
+
+
+<%- include('./partials/footer') %>
