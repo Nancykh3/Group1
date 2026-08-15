@@ -1,5 +1,4 @@
 const express = require("express");
-
 const router = express.Router();
 
 const {
@@ -8,12 +7,22 @@ const {
     loginUser
 } = require("../controllers/authController");
 
+// =========================
+// Login
+// =========================
+
+router.get("/login", (req, res) => {
+    res.render("login", {
+        error: null
+    });
+});
+
+router.post("/login", loginUser);
 
 // =========================
-// REGISTER
+// Register
 // =========================
 
-// Register page
 router.get("/register", (req, res) => {
     res.render("register", {
         errors: [],
@@ -21,23 +30,6 @@ router.get("/register", (req, res) => {
     });
 });
 
-// Register form submission
 router.post("/register", registerValidation, registerUser);
-router.post("/login", loginUser);
-
-// =========================
-// LOGIN
-// =========================
-
-// Login page
-router.get("/login", (req, res) => {
-    res.render("login", {
-        error: null
-    });
-});
-
-// Login form submission
-router.post("/login", loginUser);
-
 
 module.exports = router;
