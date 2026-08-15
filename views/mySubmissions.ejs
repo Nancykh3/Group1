@@ -11,7 +11,7 @@
     <a href="/">Home</a>
     <a href="/dashboard">Dashboard</a>
     <a href="/my-submissions">My Submissions</a>
-    <a href="/logout">Logout</a>
+    <a href="/dashboard/logout">Logout</a>
 </nav>
 
 <h1>My Submissions</h1>
@@ -25,14 +25,29 @@
 <% } else { %>
 
     <ul class="team-list">
+
     <% submissions.forEach(sub => { %>
+
         <li class="team-member">
+
             <h3><%= sub.recipeName %></h3>
+
             <p><%= sub.description %></p>
-            <p><span class="label">Time:</span> <%= sub.time %></p>
-            <p><span class="label">Submitted on:</span> <%= sub.date %></p>
+
+            <p>
+                <span class="label">Time:</span>
+                <%= sub.time %>
+            </p>
+
+            <p>
+                <span class="label">Submitted on:</span>
+                <%= sub.date %>
+            </p>
+
         </li>
+
     <% }) %>
+
     </ul>
 
 <% } %>

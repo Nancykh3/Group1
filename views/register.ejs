@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+   
+
+    <main>
+
+        <div class="auth-container">
+
+            <h1>Register</h1>
+
+            <form action="/register" method="POST" class="auth-form">
+
+                <!-- Name -->
+                <label for="name">Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    value="<%= oldData.name || '' %>"
+                    required
+                >
+
+                <% if (errors.some(error => error.path === "name")) { %>
+                    <p class="validation-error">
+                        <%= errors.find(error => error.path === "name").msg %>
+                    </p>
+                <% } %>
+
+
+                <!-- Email -->
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    value="<%= oldData.email || '' %>"
+                    required
+                >
+
+                <% if (errors.some(error => error.path === "email")) { %>
+                    <p class="validation-error">
+                        <%= errors.find(error => error.path === "email").msg %>
+                    </p>
+                <% } %>
+
+
+                <!-- Password -->
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <% if (errors.some(error => error.path === "password")) { %>
+                    <p class="validation-error">
+                        <%= errors.find(error => error.path === "password").msg %>
+                    </p>
+                <% } %>
+
+
+                <!-- Role -->
+                <label for="role">Role</label>
+
+                <select id="role" name="role">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                    <option value="manager">Manager</option>
+                </select>
+
+
+                <!-- Register Button -->
+                <button type="submit">
+                    Register
+                </button>
+
+            </form>
+
+
+            <!-- Login Link -->
+            <p class="auth-link">
+                Already have an account?
+                <a href="/login">Login</a>
+            </p>
+
+        </div>
+
+    </main>
+
+   
+
+</body>
+
+</html>

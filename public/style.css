@@ -150,6 +150,7 @@ footer {
     text-align: center;
 
 }
+
 .submit-form {
     max-width: 500px;
     margin: 30px auto;
@@ -196,4 +197,114 @@ footer {
 
 .submit-form button:hover {
     background-color: #003580;
+}
+/* =========================
+   Register & Login Forms
+   ========================= */
+
+.auth-container {
+    max-width: 450px;
+    margin: 100px auto 40px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.auth-container h1 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.auth-form label {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 10px;
+}
+
+.auth-form input,
+.auth-form select {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+}
+
+.auth-form input:focus,
+.auth-form select:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 4px rgba(0, 102, 204, 0.25);
+}
+
+.auth-form button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #004aad;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+    background-color: #0066cc;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.auth-link a {
+    color: #004aad;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+/* Validation Errors */
+
+.validation-error {
+    color: #d93025;
+    font-size: 14px;
+    margin: 2px 0 5px;
+}
+
+/* Success / Error Alert */
+
+.auth-alert {
+    background-color: #ffe5e5;
+    color: #b00020;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    .auth-container {
+        width: 90%;
+        margin: 90px auto 30px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
 }
