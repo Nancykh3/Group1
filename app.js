@@ -4,7 +4,7 @@ const app = express();
 const PORT = 3003;
 
 const session = require("express-session");
-const cookieParser = require("cookie-parser");
+
 
 require("dotenv").config();
 
@@ -29,7 +29,7 @@ app.set("views", "./views");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cookieParser());
+
 
 app.use(
     session({
@@ -38,6 +38,10 @@ app.use(
         saveUninitialized: false
     })
 );
+app.use((req, res, next) => {
+    res.locals.currentPath = req.path;
+    next();
+});
 
 // Static files
 app.use(express.static("public"));
