@@ -6,7 +6,7 @@ const PORT = 3003;
 const session = require("express-session");
 
 
-require("dotenv").config();
+
 
 // Routes
 const homeRoutes = require("./routes/homeRoutes");
@@ -33,8 +33,8 @@ app.use(express.json());
 
 app.use(
     session({
-        secret: process.env.SESSION_SECRET || "my-secret-key",
-        resave: false,
+        secret: "my-secret-key",
+          resave: false,
         saveUninitialized: false
     })
 );
